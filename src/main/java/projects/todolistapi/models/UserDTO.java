@@ -1,28 +1,21 @@
-package projects.todolistapi.entity;
+package projects.todolistapi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.Data;
 
-@Entity
-@Table(name="USER")
-public class User {
+import java.io.Serializable;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+@Data
+public class UserDTO  implements Serializable {
 
-    @Column
+    @JsonProperty("username")
     private String username;
-
-    @Column
+    @JsonProperty("last_name")
     private String last_name;
-
-    @Column
+    @JsonProperty("first_name")
     private String first_name;
-
-    @Column
     private String email;
-
-    @Column
+    @JsonProperty("password")
     private String password;
-
 }
